@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>技术点滴</title>
+  <title>Hello World | 技术点滴</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="技术点滴">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://yoursite.com/2017/09/25/hello-world/index.html">
 <meta property="og:site_name" content="技术点滴">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2017-09-25T02:07:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术点滴">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
   
     <link rel="alternate" href="/atom.xml" title="技术点滴" type="application/atom+xml">
   
@@ -60,58 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ionic-use" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/28/ionic-use/" class="article-date">
-  <time datetime="2017-09-28T02:59:32.000Z" itemprop="datePublished">2017-09-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/28/ionic-use/">ionic_use</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Ionic使用记录"><a href="#Ionic使用记录" class="headerlink" title="Ionic使用记录"></a>Ionic使用记录</h1><h2 id="Ubuntu下"><a href="#Ubuntu下" class="headerlink" title="Ubuntu下"></a>Ubuntu下</h2><h2 id="MacOSX下"><a href="#MacOSX下" class="headerlink" title="MacOSX下"></a>MacOSX下</h2><p>在系统重装后一直没有使用ionic的开发，今天要尝试时在安装后发现竟然无法启动了，先通过brew安装了java,android-sdk,node。再安装ionic</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install node ; brew cask install java android-sdk</div><div class="line">npm i -g ionic cordova</div></pre></td></tr></table></figure>
-<p>在安装后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ionic start test blank</div><div class="line">ionic cordova platform add android</div><div class="line">ionic cordova build android</div></pre></td></tr></table></figure>
-<p>在执行到第三步时就开始报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">✖ Running command - failed!</div><div class="line">[ERROR] An error occurred while running cordova build android (exit code 1):</div><div class="line"></div><div class="line">        </div><div class="line">        ANDROID_HOME=/usr/local/share/android-sdk/tools</div><div class="line">        JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home</div><div class="line">        Error: Requirements check failed for JDK 1.8 or greater</div></pre></td></tr></table></figure>
-<p>发现通过brew安装的java是9.0版，虽然是比1.8高，但ionic不认。只要重新下载jdk-8u144-macosx-x64.dmg并安装设置环境变量。再运行就提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* What went wrong:</div><div class="line">A problem occurred evaluating root project &apos;android&apos;.</div><div class="line">&gt; No installed build tools found. Install the Android build tools version 19.1.0 or higher.</div></pre></td></tr></table></figure>
-<p>此时再执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sdkmanager &quot;build-tools;19.1.0&quot; &quot;platforms;android-26&quot; &quot;platforms;android-18&quot; &quot;platforms;android-19&quot;</div></pre></td></tr></table></figure>
-<p>还是不认，最后发现系统的环境变量有误，最后修改环境变量为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/</div><div class="line">export ANDROID_HOME=/usr/local/share/android-sdk</div></pre></td></tr></table></figure>
-<p>此后可以正常执行了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/ionic-use/" data-id="cj83vzhic00005wj2di56cygj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/25/hello-world/" class="article-date">
   <time datetime="2017-09-25T02:07:46.000Z" itemprop="datePublished">2017-09-25</time>
@@ -124,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      Hello World
     </h1>
   
 
@@ -152,49 +105,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hexo-study" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/18/hexo-study/" class="article-date">
-  <time datetime="2017-09-18T10:24:50.000Z" itemprop="datePublished">2017-09-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2017/09/28/ionic-use/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          ionic_use
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/18/hexo-study/">学习使用hexo</a>
-    </h1>
   
+    <a href="/2017/09/18/hexo-study/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">学习使用hexo</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="现在进行hexo学习"><a href="#现在进行hexo学习" class="headerlink" title="现在进行hexo学习"></a>现在进行hexo学习</h1><p><a href="https://hexo.io" target="_blank" rel="external">对应的网址</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/18/hexo-study/" data-id="cj83vzhik00025wj2qjmyunuq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-hexo/">node hexo</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
